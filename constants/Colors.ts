@@ -1,19 +1,29 @@
-const tintColorLight = '#2f95dc';
-const tintColorDark = '#fff';
+export const ColorPalette = {
+  Primary: "#8352FD",
+  Primary2: "#3913B8",
+  Secondary: "#00CFFD",
+  Secondary2: "#2FB5FC",
+  NaturalDark: "#1A2151",
+  NaturalLight: "#E3E8FF",
+  Black: "#000",
+  White: "#FFFFFF",
+};
 
 export default {
   light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight,
+    text: ColorPalette.Black,
+    background: ColorPalette.NaturalLight,
+    tint: ColorPalette.Primary,
+    tabIconDefault: ColorPalette.Black,
+    tabIconSelected: ColorPalette.Primary,
+    input: ColorPalette.White,
   },
   dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
+    text: ColorPalette.White,
+    background: ColorPalette.Black,
+    tint: ColorPalette.Primary,
+    tabIconDefault: ColorPalette.White,
+    tabIconSelected: ColorPalette.Primary,
+    input: "#211f26",
   },
 };
