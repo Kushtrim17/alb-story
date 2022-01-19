@@ -6,5 +6,5 @@ export type Village = {
   name: string;
   description: string;
   city: City;
-  region: Area;
+  region?: Area;
 };

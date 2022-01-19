@@ -17,6 +17,7 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
+import VoicesScreen from "../screens/Voices";
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 
@@ -71,6 +72,14 @@ function BottomTabNavigator() {
           headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="grid" color={color} />,
         })}
+      />
+      <BottomTab.Screen
+        name="Voices"
+        component={VoicesScreen}
+        options={{
+          title: "Voices",
+          tabBarIcon: ({ color }) => <TabBarIcon name="mic" color={color} />,
+        }}
       />
       <BottomTab.Screen
         name="Map"

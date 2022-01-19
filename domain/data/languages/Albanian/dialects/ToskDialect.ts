@@ -2,7 +2,7 @@ import { Dialect } from "../../../../entities/Dialect/Dialect";
 import { Subdialect } from "../../../../entities/SubDialect/SubDialect";
 import { Variant } from "../../../../entities/Variant/Variant";
 
-const northernToskSubDialectWesternVariant: Variant = {
+export const NorthernToskSubDialectWesternVariant: Variant = {
   id: 0,
   subDialectId: 2,
   name: "Western Variant",
@@ -23,7 +23,7 @@ const northernToskSubDialectWesternVariant: Variant = {
   countries: [],
 };
 
-const northernToskSubDialectEasternVariant: Variant = {
+export const NorthernToskSubDialectEasternVariant: Variant = {
   id: 0,
   subDialectId: 2,
   name: "Eastern Variant",
@@ -44,14 +44,14 @@ const northernToskSubDialectEasternVariant: Variant = {
   countries: [],
 };
 
-const northernToskSubDialect: Subdialect = {
+export const NorthernToskSubDialect: Subdialect = {
   id: 3,
   dialectId: 3,
   name: "Northern Tosk Subdialect",
   description: `Spoken in most of Albania south of the Shkumbin river, with the exception of southern coastal areas on the left (southwestern) side of the Vjosa river. On the coast, the southern border of this area is just south of the town of Vlora.`,
   colorIndicator: "",
   nrOfSpeakers: 0,
-  variants: [northernToskSubDialectWesternVariant, northernToskSubDialectEasternVariant],
+  variants: [NorthernToskSubDialectWesternVariant, NorthernToskSubDialectEasternVariant],
   geoJson: "",
   area: {
     id: 0,
@@ -66,7 +66,7 @@ const northernToskSubDialect: Subdialect = {
   countries: [],
 };
 
-const southernToskSubDialectLabVariant: Variant = {
+export const SouthernToskSubDialectLabVariant: Variant = {
   id: 0,
   subDialectId: 4,
   name: "Lab Variant",
@@ -87,7 +87,7 @@ const southernToskSubDialectLabVariant: Variant = {
   countries: [],
 };
 
-const southernToskSubDialectChamVariant: Variant = {
+export const SouthernToskSubDialectChamVariant: Variant = {
   id: 0,
   subDialectId: 4,
   name: "Cham Variant",
@@ -108,14 +108,14 @@ const southernToskSubDialectChamVariant: Variant = {
   countries: [],
 };
 
-const southernToskSubDialect: Subdialect = {
+export const SouthernToskSubDialect: Subdialect = {
   id: 4,
   dialectId: 3,
   name: "Southern Tosk Subdialect",
   description: `Spoken in coastal regions south of the town of Vlora and extending downinto Greece.`,
   colorIndicator: "",
   nrOfSpeakers: 0,
-  variants: [southernToskSubDialectLabVariant, southernToskSubDialectChamVariant],
+  variants: [SouthernToskSubDialectLabVariant, SouthernToskSubDialectChamVariant],
   geoJson: "",
   area: {
     id: 0,
@@ -130,7 +130,7 @@ const southernToskSubDialect: Subdialect = {
   countries: [],
 };
 
-const arvaniticToskSubDialect: Subdialect = {
+export const arvaniticToskSubDialect: Subdialect = {
   id: 5,
   dialectId: 3,
   name: "Arvanitic Tosk Subdialect",
@@ -152,7 +152,7 @@ const arvaniticToskSubDialect: Subdialect = {
   countries: [],
 };
 
-const italoAlbanianToskSubDialect: Subdialect = {
+export const italoAlbanianToskSubDialect: Subdialect = {
   id: 6,
   dialectId: 3,
   name: "Italo-Albanian Tosk Subdialect",
@@ -181,7 +181,7 @@ export const ToskDialect: Dialect = {
   languageId: 1,
   colorIndicator: "",
   nrOfSpeakers: 0,
-  subDialects: [northernToskSubDialect, southernToskSubDialect, arvaniticToskSubDialect, italoAlbanianToskSubDialect],
+  subDialects: [NorthernToskSubDialect, SouthernToskSubDialect, arvaniticToskSubDialect, italoAlbanianToskSubDialect],
   geoJson: "",
   area: {
     id: 0,

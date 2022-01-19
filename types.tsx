@@ -25,6 +25,7 @@ export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
   Map: undefined;
+  Voices: undefined;
   Dashboard: undefined;
 };
 
