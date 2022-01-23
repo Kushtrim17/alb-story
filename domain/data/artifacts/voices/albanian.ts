@@ -2,12 +2,16 @@ import { VoiceArtifact } from "../../../entities/VoiceArtifact/VoiceArtifact";
 import { Albania } from "../../countries/Albania/albania";
 import { SouthernAlbaniaArea } from "../../countries/Albania/Areas/SouthernAlbaniaArea";
 import { Delvina } from "../../countries/Albania/Cities/Delvina";
+import { Gjirokastra } from "../../countries/Albania/Cities/Gjirokastra";
 import { Konsipol } from "../../countries/Albania/Cities/Konsipol";
 import { Ksamil } from "../../countries/Albania/Cities/Ksamil";
 import { Saranda } from "../../countries/Albania/Cities/Saranda";
+import { Libohova } from "../../countries/Albania/Villages/Libohova";
 import { Rusan } from "../../countries/Albania/Villages/Rusan";
 import { Xarra } from "../../countries/Albania/Villages/Villages";
+import { Zhulat } from "../../countries/Albania/Villages/Zhulat";
 import {
+  NorthernToskSubDialectWesternVariant,
   SouthernToskSubDialect,
   SouthernToskSubDialectChamVariant,
   SouthernToskSubDialectLabVariant,
@@ -105,5 +109,57 @@ export const albanianVoices: VoiceArtifact[] = [
     duration: 254,
     coordinates: [39.95, 20.066667],
     artifactUrl: "http://dialects.albanianlanguage.net/AL/audios/AD045_ALDL_Rusan01.mp3",
+  },
+  {
+    id: 184,
+    variant: NorthernToskSubDialectWesternVariant,
+    region: SouthernAlbaniaArea,
+    country: Albania,
+    city: Gjirokastra,
+    village: Libohova,
+    speakerName: "Merkur Tosuni",
+    speakerDescription: "Born in 1962. His life and work as a sage herb merchant in Libohova.",
+    subject: "On the Mosque of Gjin Aleksi and her Islamic faith.",
+    recorderdOn: new Date("23 October 2012"),
+    recordedBy: ["Robert Elsie", "Artur Metani"],
+    duration: 463,
+    // 40.016667, 20.250000
+    coordinates: [40.016667, 20.250001],
+    artifactUrl: "http://dialects.albanianlanguage.net/AL/audios/AD184_ALGJ_Libohova01.mp3",
+  },
+  {
+    id: 54,
+    variant: NorthernToskSubDialectWesternVariant,
+    region: SouthernAlbaniaArea,
+    country: Albania,
+    city: Gjirokastra,
+    speakerName: "Baba Rexhebi",
+    speakerDescription: "(1901-1995). Born in 1962. His life and work as a sage herb merchant in Libohova.",
+    subject:
+      "On his Bektashi faith and the creation ofa Bektashi tekke in the United States. Recordedin Washington DC by the Voice of America. With the kind assistance of Frances Trix",
+    recorderdOn: new Date("23 October 2012"),
+    recordedBy: ["Voice of America", "Frances Trix"],
+    duration: 116,
+    // 40.066667, 20.133333
+    coordinates: [40.066667, 20.133333],
+    artifactUrl: "http://dialects.albanianlanguage.net/AL/audios/AD054_ALGJ_Gjirokastra01.mp3",
+  },
+  {
+    id: 183,
+    variant: NorthernToskSubDialectWesternVariant,
+    region: SouthernAlbaniaArea,
+    country: Albania,
+    city: Gjirokastra,
+    village: Zhulat,
+    speakerName: "Bukurie Aliko",
+    speakerDescription: "Born in 1918. Born in 1962. His life and work as a sage herb merchant in Libohova.",
+    subject: "On the village of Zhulat, past and present.",
+    // date is actually not recorded it is earlier than 1995
+    recorderdOn: new Date("23 October 1992"),
+    recordedBy: ["Robert Elsie", "Artur Metani"],
+    duration: 196,
+    // 40.116667, 19.983333
+    coordinates: [40.116667, 19.983333],
+    artifactUrl: "https://dialects.albanianlanguage.net/AL/audios/AD183_ALGJ_Zhulat01.mp3",
   },
 ];

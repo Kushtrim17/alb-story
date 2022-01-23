@@ -23,8 +23,8 @@ Trace:
       at ClientRequest.emit (events.js:400:28)
       at HTTPParser.parserOnIncomingClient (_http_client.js:647:27)
       at HTTPParser.parserOnHeadersComplete (_http_common.js:127:17)
+      at HTTPParser.execute (<anonymous>)
       at TLSSocket.socketOnData (_http_client.js:515:22)
-      at TLSSocket.emit (events.js:400:28)
 
 npm manifest: 
   {
