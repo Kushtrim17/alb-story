@@ -1,5 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Audio } from "expo-av";
 import MapView, { Marker } from "react-native-maps";
@@ -12,12 +12,14 @@ import HeadlineBold from "../../components/Text/HeadlineBold";
 import Title from "../../components/Text/Title";
 import { View as ThemedView } from "../../components/Themed";
 import Layout from "../../constants/Layout";
+import { VoiceArtifact } from "../../domain/entities/VoiceArtifact/VoiceArtifact";
 
-const VoiceDetailsBody: React.FC = () => {
+const VoiceDetailsBody: React.FC<{ voiceArtifact: VoiceArtifact }> = ({ voiceArtifact }) => {
   return (
     <View style={styles.details}>
-      <HeadlineBold>Cham Variant</HeadlineBold>
+      <HeadlineBold>{voiceArtifact?.variant?.name}</HeadlineBold>
       <BodyTextSmall>Tosk - Northern Tosk</BodyTextSmall>
+      {/* <BodyTextSmall>{voiceArtifact?.} - Northern Tosk</BodyTextSmall> */}
       <Margin size={10} />
       <Title>Country</Title>
       <ListItemSimple text={"Albania"} hideRightIcon />
@@ -38,23 +40,54 @@ const VoiceDetailsBody: React.FC = () => {
   );
 };
 
+type ParamList = {
+  VoiceDetails: {
+    voiceArtifact: VoiceArtifact;
+  };
+};
+
 export default function VoiceDetails() {
   const LATITUDE = 37.78825;
   const LONGITUDE = -122.4324;
+
+  const { params } = useRoute<RouteProp<ParamList, "VoiceDetails">>();
   const navigation = useNavigation();
+  const [recording, setRecording] = useState<Audio.Sound | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleListenToRecording = async () => {
     try {
-      const { sound } = await Audio.Sound.createAsync(require("./../../assets/sounds/one-beep.wav"), { volume: 1 });
-
-      await sound.playAsync();
       console.log("we have played it ..");
+      if (recording == null) {
+        return;
+      }
+
+      if (!isPlaying) {
+        setIsPlaying(true);
+        return await recording.playAsync();
+      }
+
+      setIsPlaying(false);
+      return await recording.stopAsync();
     } catch (error) {
-      console.log("-----------------------");
       console.log(error);
-      console.log("-----------------------");
     }
   };
+
+  useEffect(() => {
+    const handleNewRecording = async () => {
+      const { sound } = await Audio.Sound.createAsync({ uri: params.voiceArtifact.artifactUrl }, { volume: 1 });
+
+      setRecording(sound);
+    };
+
+    handleNewRecording();
+
+    return () => {
+      setIsPlaying(false);
+      setRecording(null);
+    };
+  }, []);
 
   return (
     <View>
@@ -64,10 +97,10 @@ export default function VoiceDetails() {
       <ScrollView>
         <MapView style={styles.map} />
         <Marker coordinate={{ latitude: LATITUDE, longitude: LONGITUDE }} />
-        <VoiceDetailsBody />
+        <VoiceDetailsBody voiceArtifact={params.voiceArtifact} />
       </ScrollView>
       <ThemedView style={styles.listenButton}>
-        <HButton label={"Listen"} onPress={handleListenToRecording} />
+        <HButton label={isPlaying ? "Pause" : "Listen"} onPress={handleListenToRecording} />
       </ThemedView>
     </View>
   );

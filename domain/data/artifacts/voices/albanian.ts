@@ -77,7 +77,7 @@ export const albanianVoices: VoiceArtifact[] = [
     recordedBy: ["Robert Elsie", "Artur Metani"],
     duration: 57,
     coordinates: [39.716667, 20.05],
-    artifactUrl: "https://dialects.albanianlanguage.net/AL/audios/AD043_ALSR_Xarra01.mp3",
+    artifactUrl: "http://dialects.albanianlanguage.net/AL/audios/AD043_ALSR_Xarra01.mp3",
   },
   {
     id: 44,
@@ -92,7 +92,7 @@ export const albanianVoices: VoiceArtifact[] = [
     recordedBy: ["Robert Elsie", "Artur Metani"],
     duration: 51,
     coordinates: [39.933333, 20.1],
-    artifactUrl: "https://dialects.albanianlanguage.net/AL/audios/AD044_ALDL_Delvina01.mp3",
+    artifactUrl: "http://dialects.albanianlanguage.net/AL/audios/AD044_ALDL_Delvina01.mp3",
   },
   {
     id: 45,
@@ -160,6 +160,6 @@ export const albanianVoices: VoiceArtifact[] = [
     duration: 196,
     // 40.116667, 19.983333
     coordinates: [40.116667, 19.983333],
-    artifactUrl: "https://dialects.albanianlanguage.net/AL/audios/AD183_ALGJ_Zhulat01.mp3",
+    artifactUrl: "http://dialects.albanianlanguage.net/AL/audios/AD183_ALGJ_Zhulat01.mp3",
   },
 ];

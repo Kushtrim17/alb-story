@@ -50,7 +50,7 @@ export default function VoicesScreen() {
               key={item.id}
               title={item.speakerName}
               subTitle={item.variant?.name || item.subDialect?.name || ""}
-              onPress={() => navigation.navigate("VoiceDetails")}
+              onPress={() => navigation.navigate("VoiceDetails", { voiceArtifact: item })}
             />
           )}
           scrollEnabled={true}

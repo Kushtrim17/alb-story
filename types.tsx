@@ -6,6 +6,7 @@
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { CompositeScreenProps, NavigatorScreenParams } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { VoiceArtifact } from "./domain/entities/VoiceArtifact/VoiceArtifact";
 
 declare global {
   namespace ReactNavigation {
@@ -17,7 +18,7 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
-  VoiceDetails: undefined;
+  VoiceDetails: { voiceArtifact: VoiceArtifact };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, Screen>;
