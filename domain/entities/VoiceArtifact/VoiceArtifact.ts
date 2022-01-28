@@ -16,7 +16,7 @@ export type VoiceArtifact = {
   speakerName: string;
   speakerDescription: string;
   subject: string;
-  recorderdOn: Date;
+  recorderdOn: Date | string;
   recordedBy: string[];
   duration: number;
   coordinates: number[];

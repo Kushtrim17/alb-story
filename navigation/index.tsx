@@ -13,6 +13,7 @@ import { ColorSchemeName, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import DashboardScreen from "../screens/Dashboard";
+import MapScreen from "../screens/Map";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
@@ -86,9 +87,10 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Map"
-        component={TabTwoScreen}
+        component={MapScreen}
         options={{
           title: "Map",
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
         }}
       />

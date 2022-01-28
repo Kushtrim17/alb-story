@@ -2,7 +2,7 @@ import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Audio } from "expo-av";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { AnimatedRegion, Marker } from "react-native-maps";
 import CircleButton from "../../components/Button/CircleButton";
 import HButton from "../../components/Button/HButton";
 import ListItemSimple from "../../components/ListItem/ListItemSimple";
@@ -13,28 +13,39 @@ import Title from "../../components/Text/Title";
 import { View as ThemedView } from "../../components/Themed";
 import Layout from "../../constants/Layout";
 import { VoiceArtifact } from "../../domain/entities/VoiceArtifact/VoiceArtifact";
+import { AlbanianLanguage } from "../../domain/data/languages/Albanian/albanian";
 
 const VoiceDetailsBody: React.FC<{ voiceArtifact: VoiceArtifact }> = ({ voiceArtifact }) => {
+  const getDialect = () => {
+    return "Tosk";
+  };
+
+  const getVariant = () => {
+    return "Northern Tosk";
+  };
+
   return (
     <View style={styles.details}>
       <HeadlineBold>{voiceArtifact?.variant?.name}</HeadlineBold>
-      <BodyTextSmall>Tosk - Northern Tosk</BodyTextSmall>
+      <BodyTextSmall>
+        {getDialect()} - {getVariant()}
+      </BodyTextSmall>
       {/* <BodyTextSmall>{voiceArtifact?.} - Northern Tosk</BodyTextSmall> */}
       <Margin size={10} />
       <Title>Country</Title>
-      <ListItemSimple text={"Albania"} hideRightIcon />
+      <ListItemSimple text={voiceArtifact.country?.name!!} hideRightIcon />
       <Margin size={10} />
       <Title>City</Title>
-      <ListItemSimple text={"Saranda"} hideRightIcon />
+      <ListItemSimple text={voiceArtifact.city?.name!!} hideRightIcon />
       <Margin size={10} />
       <Title>Speaker</Title>
-      <ListItemSimple text={"Hisni Xhemaili"} hideRightIcon />
+      <ListItemSimple text={voiceArtifact.speakerName} hideRightIcon />
       <Margin size={10} />
       <Title>Recorded by</Title>
-      <ListItemSimple text={"Robert Elsie & Artur Metani"} hideRightIcon />
+      <ListItemSimple text={voiceArtifact.recordedBy.join(" & ")} hideRightIcon />
       <Margin size={10} />
       <Title>Duration</Title>
-      <ListItemSimple text={"50 seconds"} hideRightIcon />
+      <ListItemSimple text={`${voiceArtifact.duration.toString()} seconds`} hideRightIcon />
       <Margin size={50} />
     </View>
   );
@@ -55,9 +66,15 @@ export default function VoiceDetails() {
   const [recording, setRecording] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const region = {
+    latitude: params.voiceArtifact.coordinates[0],
+    longitude: params.voiceArtifact.coordinates[1],
+    latitudeDelta: 1.0922,
+    longitudeDelta: 2.0421,
+  };
+
   const handleListenToRecording = async () => {
     try {
-      console.log("we have played it ..");
       if (recording == null) {
         return;
       }
@@ -84,6 +101,7 @@ export default function VoiceDetails() {
     handleNewRecording();
 
     return () => {
+      recording?.stopAsync();
       setIsPlaying(false);
       setRecording(null);
     };
@@ -95,8 +113,9 @@ export default function VoiceDetails() {
         <CircleButton name="chevron-back" onPress={() => navigation.goBack()} />
       </View>
       <ScrollView>
-        <MapView style={styles.map} />
-        <Marker coordinate={{ latitude: LATITUDE, longitude: LONGITUDE }} />
+        <MapView style={styles.map} region={region}>
+          <Marker coordinate={{ latitude: params.voiceArtifact.coordinates[0], longitude: params.voiceArtifact.coordinates[1] }} />
+        </MapView>
         <VoiceDetailsBody voiceArtifact={params.voiceArtifact} />
       </ScrollView>
       <ThemedView style={styles.listenButton}>
@@ -117,7 +136,6 @@ const styles = StyleSheet.create({
   map: {
     height: 350,
     width: Layout.window.width,
-    borderBottomLeftRadius: 30,
   },
   details: {
     margin: 20,

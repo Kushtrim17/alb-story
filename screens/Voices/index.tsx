@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
+import { ABottomSheet } from "../../components-external/ABottomSheet/ABottomSheet";
 import ListItem from "../../components/ListItem/ListItem";
-import ListItemSimple from "../../components/ListItem/ListItemSimple";
 import Margin from "../../components/Margin/Margin";
 import ScreenView from "../../components/Screen";
 import ScreenCaption from "../../components/Screen/ScreenCaption";
@@ -13,13 +13,13 @@ import HeadlineBold from "../../components/Text/HeadlineBold";
 import Layout from "../../constants/Layout";
 import { albanianVoices } from "../../domain/data/artifacts/voices/albanian";
 
-const ScreenHeader: React.FC = () => {
+const ScreenHeader: React.FC<{ numberOfRecordings: number }> = ({ numberOfRecordings }) => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.screenContainer}>
       <View>
-        <ScreenCaption>Total 150</ScreenCaption>
+        <ScreenCaption>Total {numberOfRecordings}</ScreenCaption>
         <ScreenCaptionHighlight>Recordings</ScreenCaptionHighlight>
       </View>
       <View style={styles.feedbackContainer}>
@@ -35,12 +35,17 @@ const ScreenHeader: React.FC = () => {
 export default function VoicesScreen() {
   const navigation = useNavigation();
   const keyExtractor = (activity: any, index: number) => index.toString();
+  const [showFilters, setShowFilters] = useState(false);
+
+  const handleShowFilters = () => {
+    setShowFilters(true);
+  };
 
   return (
     <ScreenView>
       <Margin size={5} />
-      <ScreenHeader />
-      <Section title="Voices" actionText="Filters">
+      <ScreenHeader numberOfRecordings={albanianVoices.length} />
+      <Section title="Voices" actionText="Filters" onPress={handleShowFilters}>
         <FlatList
           style={styles.listContainer}
           keyExtractor={keyExtractor}
@@ -58,6 +63,9 @@ export default function VoicesScreen() {
           // ListEmptyComponent={<NoItemsFoundMessage text="No activities match your search" />}
         />
       </Section>
+      <ABottomSheet shouldShow={showFilters} onClose={() => setShowFilters(false)}>
+        <HeadlineBold>This is bottom sheet</HeadlineBold>
+      </ABottomSheet>
     </ScreenView>
   );
 }
