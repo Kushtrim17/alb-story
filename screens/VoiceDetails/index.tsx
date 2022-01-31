@@ -58,9 +58,6 @@ type ParamList = {
 };
 
 export default function VoiceDetails() {
-  const LATITUDE = 37.78825;
-  const LONGITUDE = -122.4324;
-
   const { params } = useRoute<RouteProp<ParamList, "VoiceDetails">>();
   const navigation = useNavigation();
   const [recording, setRecording] = useState<Audio.Sound | null>(null);

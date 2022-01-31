@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
-import { ABottomSheet } from "../../components-external/ABottomSheet/ABottomSheet";
 import ListItem from "../../components/ListItem/ListItem";
 import Margin from "../../components/Margin/Margin";
 import ScreenView from "../../components/Screen";
@@ -12,6 +11,7 @@ import BodyText from "../../components/Text/BodyText";
 import HeadlineBold from "../../components/Text/HeadlineBold";
 import Layout from "../../constants/Layout";
 import { albanianVoices } from "../../domain/data/artifacts/voices/albanian";
+import VoicesFilter from "./components/VoicesFilter";
 
 const ScreenHeader: React.FC<{ numberOfRecordings: number }> = ({ numberOfRecordings }) => {
   const navigation = useNavigation();
@@ -63,9 +63,7 @@ export default function VoicesScreen() {
           // ListEmptyComponent={<NoItemsFoundMessage text="No activities match your search" />}
         />
       </Section>
-      <ABottomSheet shouldShow={showFilters} onClose={() => setShowFilters(false)}>
-        <HeadlineBold>This is bottom sheet</HeadlineBold>
-      </ABottomSheet>
+      <VoicesFilter shouldShow={showFilters} onClose={() => setShowFilters(false)} />
     </ScreenView>
   );
 }

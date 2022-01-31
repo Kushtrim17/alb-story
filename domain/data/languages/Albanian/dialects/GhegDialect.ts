@@ -47,7 +47,7 @@ const northernGhegSubDialectEasternVariant: Variant = {
 export const northernGhegSubDialect: Subdialect = {
   id: 1,
   dialectId: 1,
-  name: "Northern Gheg subdialect",
+  name: "Northern Gheg",
   description: `Spoken in most Albanian-speaking regions north of the Mat river. These include Ulqin [Ulcinj], Kraja and Podgorica in Montenegro, the Shkodra region, Lezha, Malësia e Madhe, Dukagjin, Puka, Mirdita, Plava, Malësia e Gjakovës, Luma, Has, Kosovo and Presheva [Preševo].`,
   colorIndicator: "",
   nrOfSpeakers: 0,
@@ -111,7 +111,7 @@ export const southernGhegSubDialectSouthernVariant: Variant = {
 export const southernGhegSubDialect: Subdialect = {
   id: 2,
   dialectId: 1,
-  name: "Southern Gheg subdialect",
+  name: "Southern Gheg",
   description: `Spoken in northern central Albania south of the Mat river and north of the Shkumbin river, including Mat, Lura, Peshkopia and most of western Macedonia (Dibra to Skopje and Kumanova), as well as Kruja, Tirana and Elbasan.`,
   colorIndicator: "",
   nrOfSpeakers: 0,

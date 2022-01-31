@@ -47,7 +47,7 @@ export const NorthernToskSubDialectEasternVariant: Variant = {
 export const NorthernToskSubDialect: Subdialect = {
   id: 3,
   dialectId: 3,
-  name: "Northern Tosk Subdialect",
+  name: "Northern Tosk",
   description: `Spoken in most of Albania south of the Shkumbin river, with the exception of southern coastal areas on the left (southwestern) side of the Vjosa river. On the coast, the southern border of this area is just south of the town of Vlora.`,
   colorIndicator: "",
   nrOfSpeakers: 0,
@@ -111,7 +111,7 @@ export const SouthernToskSubDialectChamVariant: Variant = {
 export const SouthernToskSubDialect: Subdialect = {
   id: 4,
   dialectId: 3,
-  name: "Southern Tosk Subdialect",
+  name: "Southern Tosk",
   description: `Spoken in coastal regions south of the town of Vlora and extending downinto Greece.`,
   colorIndicator: "",
   nrOfSpeakers: 0,
@@ -133,7 +133,7 @@ export const SouthernToskSubDialect: Subdialect = {
 export const arvaniticToskSubDialect: Subdialect = {
   id: 5,
   dialectId: 3,
-  name: "Arvanitic Tosk Subdialect",
+  name: "Arvanitic Tosk",
   description: `Spoken traditionally in about 300 villages of central Greece, in particular in Attica, Boeotia, southern Euboia, the northeastern Peloponnese around Corinth, the islands of the Sardonic Gulf, including Salamis, northern Andros, as well as some other parts of the Peloponnese and Phthiotis. This archaic dialect is moribund, though there may still be from 50,000 to 250,000 speakers, mostly older people.`,
   colorIndicator: "",
   nrOfSpeakers: 0,
@@ -155,7 +155,7 @@ export const arvaniticToskSubDialect: Subdialect = {
 export const italoAlbanianToskSubDialect: Subdialect = {
   id: 6,
   dialectId: 3,
-  name: "Italo-Albanian Tosk Subdialect",
+  name: "Italo-Albanian Tosk",
   description: `This archaic variant of Albanian is spoken by about 90,000 people in southern Italy. Speakers are to be found, usually in remote mountain villages, in the regions of Calabria, Molise, Puglia, Basilicata, Campagnia, Abruzzi and Sicily.`,
   colorIndicator: "",
   nrOfSpeakers: 0,
