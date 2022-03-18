@@ -1,55 +1,15 @@
-import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Audio } from "expo-av";
-import MapView, { AnimatedRegion, Marker } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import CircleButton from "../../components/Button/CircleButton";
 import HButton from "../../components/Button/HButton";
-import ListItemSimple from "../../components/ListItem/ListItemSimple";
-import Margin from "../../components/Margin/Margin";
-import BodyTextSmall from "../../components/Text/BodyTextSmall";
-import HeadlineBold from "../../components/Text/HeadlineBold";
-import Title from "../../components/Text/Title";
 import { View as ThemedView } from "../../components/Themed";
 import Layout from "../../constants/Layout";
 import { VoiceArtifact } from "../../domain/entities/VoiceArtifact/VoiceArtifact";
-import { AlbanianLanguage } from "../../domain/data/languages/Albanian/albanian";
-
-const VoiceDetailsBody: React.FC<{ voiceArtifact: VoiceArtifact }> = ({ voiceArtifact }) => {
-  const getDialect = () => {
-    return "Tosk";
-  };
-
-  const getVariant = () => {
-    return "Northern Tosk";
-  };
-
-  return (
-    <View style={styles.details}>
-      <HeadlineBold>{voiceArtifact?.variant?.name}</HeadlineBold>
-      <BodyTextSmall>
-        {getDialect()} - {getVariant()}
-      </BodyTextSmall>
-      {/* <BodyTextSmall>{voiceArtifact?.} - Northern Tosk</BodyTextSmall> */}
-      <Margin size={10} />
-      <Title>Country</Title>
-      <ListItemSimple text={voiceArtifact.country?.name!!} hideRightIcon />
-      <Margin size={10} />
-      <Title>City</Title>
-      <ListItemSimple text={voiceArtifact.city?.name!!} hideRightIcon />
-      <Margin size={10} />
-      <Title>Speaker</Title>
-      <ListItemSimple text={voiceArtifact.speakerName} hideRightIcon />
-      <Margin size={10} />
-      <Title>Recorded by</Title>
-      <ListItemSimple text={voiceArtifact.recordedBy.join(" & ")} hideRightIcon />
-      <Margin size={10} />
-      <Title>Duration</Title>
-      <ListItemSimple text={`${voiceArtifact.duration.toString()} seconds`} hideRightIcon />
-      <Margin size={50} />
-    </View>
-  );
-};
+import VoiceArtifactDetails from "./components/VoiceArtifactDetails";
+import { getSubDialectColorIndicatorFromVariant } from "../../domain/application/application";
 
 type ParamList = {
   VoiceDetails: {
@@ -88,6 +48,10 @@ export default function VoiceDetails() {
     }
   };
 
+  const getColorIndicator = (voice: VoiceArtifact) => {
+    return getSubDialectColorIndicatorFromVariant(voice.variant.id);
+  };
+
   useEffect(() => {
     const handleNewRecording = async () => {
       const { sound } = await Audio.Sound.createAsync({ uri: params.voiceArtifact.artifactUrl }, { volume: 1 });
@@ -110,10 +74,13 @@ export default function VoiceDetails() {
         <CircleButton name="chevron-back" onPress={() => navigation.goBack()} />
       </View>
       <ScrollView>
-        <MapView style={styles.map} region={region}>
-          <Marker coordinate={{ latitude: params.voiceArtifact.coordinates[0], longitude: params.voiceArtifact.coordinates[1] }} />
+        <MapView style={styles.map} region={region} provider={PROVIDER_GOOGLE} userInterfaceStyle={"dark"}>
+          <Marker
+            pinColor={getColorIndicator(params.voiceArtifact)}
+            coordinate={{ latitude: params.voiceArtifact.coordinates[0], longitude: params.voiceArtifact.coordinates[1] }}
+          />
         </MapView>
-        <VoiceDetailsBody voiceArtifact={params.voiceArtifact} />
+        <VoiceArtifactDetails voiceArtifact={params.voiceArtifact} />
       </ScrollView>
       <ThemedView style={styles.listenButton}>
         <HButton label={isPlaying ? "Pause" : "Listen"} onPress={handleListenToRecording} />
@@ -133,9 +100,6 @@ const styles = StyleSheet.create({
   map: {
     height: 350,
     width: Layout.window.width,
-  },
-  details: {
-    margin: 20,
   },
   listenButton: {
     position: "absolute",

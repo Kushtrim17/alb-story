@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "alb-story",
+    "name": "Alb Story",
     "slug": "alb-story",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,17 +15,25 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "config": {
+        "googleMapsApiKey": "AIzaSyCuGYYMsnLje8c7LBZV6aYf0Qmnb5QtLP8"
+      },
+      "bundleIdentifier": "com.kushtrimabdiu.albstory"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAwdrjwmFelEHesPkM8H0GxwzOtNVHFoRg"
+        }
+      },
+      "package": "com.kushtrimabdiu.albstory"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

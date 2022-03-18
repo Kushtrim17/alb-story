@@ -2,9 +2,9 @@ import { Dialect } from "../../../../entities/Dialect/Dialect";
 import { Subdialect } from "../../../../entities/SubDialect/SubDialect";
 import { Variant } from "../../../../entities/Variant/Variant";
 
-const northernGhegSubDialectWesternVariant: Variant = {
-  id: 1,
-  subDialectId: 1,
+const NorthernGhegSubDialectWesternVariant: Variant = {
+  id: "northern-gheg-sub-dialect-western-variant",
+  subDialectId: "northern-gheg-sub-dialect",
   name: "Western variant",
   description: `Spoken in regions to the west of a vertical line from the Montenegrin-Albanian border initially down the boundary between the Prefecture of Shkodra and the Prefecture of Kukës, including Theth and Shala in Dukagjin and areas west thereof such as Shkodra, Lezha, Malësia e Madhe and Montenegro`,
   colorIndicator: "",
@@ -23,9 +23,9 @@ const northernGhegSubDialectWesternVariant: Variant = {
   countries: [],
 };
 
-const northernGhegSubDialectEasternVariant: Variant = {
-  id: 2,
-  subDialectId: 1,
+const NorthernGhegSubDialectEasternVariant: Variant = {
+  id: "northern-gheg-sub-dialect-eastern-variant",
+  subDialectId: "northern-gheg-sub-dialect",
   name: "Eastern variant",
   description: `Spoken in regions to the east of a vertical line from the Montenegrin-Albanian border initially down the boundary between the Prefecture of Shkodra and the Prefecture of Kukës, including Nikaj-Merturi and Puka, and areas east thereof such as Gashi, Tropoja, Malësia e Gjakovës, Has, Kukës, Kosovo and Presheva.`,
   colorIndicator: "",
@@ -44,14 +44,14 @@ const northernGhegSubDialectEasternVariant: Variant = {
   countries: [],
 };
 
-export const northernGhegSubDialect: Subdialect = {
-  id: 1,
-  dialectId: 1,
+export const NorthernGhegSubDialect: Subdialect = {
+  id: "northern-gheg-sub-dialect",
+  dialectId: "gheg-dialect",
   name: "Northern Gheg",
   description: `Spoken in most Albanian-speaking regions north of the Mat river. These include Ulqin [Ulcinj], Kraja and Podgorica in Montenegro, the Shkodra region, Lezha, Malësia e Madhe, Dukagjin, Puka, Mirdita, Plava, Malësia e Gjakovës, Luma, Has, Kosovo and Presheva [Preševo].`,
-  colorIndicator: "",
+  colorIndicator: "#ad1457",
   nrOfSpeakers: 0,
-  variants: [northernGhegSubDialectWesternVariant, northernGhegSubDialectEasternVariant],
+  variants: [NorthernGhegSubDialectWesternVariant, NorthernGhegSubDialectEasternVariant],
   geoJson: "",
   area: {
     id: 0,
@@ -66,9 +66,9 @@ export const northernGhegSubDialect: Subdialect = {
   countries: [],
 };
 
-export const southernGhegSubDialectCentralVariant: Variant = {
-  id: 3,
-  subDialectId: 2,
+export const SouthernGhegSubDialectCentralVariant: Variant = {
+  id: "southern-gheg-sub-dialect-central-variant",
+  subDialectId: "southern-gheg-sub-dialect",
   name: "Central Variant",
   description: `Spoken in the interior basin of the Mat river, extending eastwards to and beyond the Black Drin river, including Mat, part of Mirdita, Lura, Luma, Peshkopia and western Macedonia (the left bank of the Black Drin around Struga, Dibra, Kërçova [Kičevo], Tetova, Gostivar, Skopje and Kumanova), as well as Kruja and Fushë Kruja.`,
   colorIndicator: "",
@@ -87,9 +87,9 @@ export const southernGhegSubDialectCentralVariant: Variant = {
   countries: [],
 };
 
-export const southernGhegSubDialectSouthernVariant: Variant = {
-  id: 4,
-  subDialectId: 2,
+export const SouthernGhegSubDialectSouthernVariant: Variant = {
+  id: "southern-gheg-sub-dialect-southern-variant",
+  subDialectId: "southern-gheg-sub-dialect",
   name: "Southern variant",
   description: `Spoken in most of the coastal region from the mouth of the Mat or Ishëm rivers to the mouth of the Shkumbin river, including Durrës, Tirana, and Kavaja, as well as inland areas such as the Tirana mountain range, Martanesh and Çermenika, Elbasan and the valley of the Shkumbin river.`,
   colorIndicator: "",
@@ -108,14 +108,14 @@ export const southernGhegSubDialectSouthernVariant: Variant = {
   countries: [],
 };
 
-export const southernGhegSubDialect: Subdialect = {
-  id: 2,
-  dialectId: 1,
+export const SouthernGhegSubDialect: Subdialect = {
+  id: "southern-gheg-sub-dialect",
+  dialectId: "gheg-dialect",
   name: "Southern Gheg",
   description: `Spoken in northern central Albania south of the Mat river and north of the Shkumbin river, including Mat, Lura, Peshkopia and most of western Macedonia (Dibra to Skopje and Kumanova), as well as Kruja, Tirana and Elbasan.`,
-  colorIndicator: "",
+  colorIndicator: "#c2185b",
   nrOfSpeakers: 0,
-  variants: [southernGhegSubDialectCentralVariant, southernGhegSubDialectSouthernVariant],
+  variants: [SouthernGhegSubDialectCentralVariant, SouthernGhegSubDialectSouthernVariant],
   geoJson: "",
   area: {
     id: 0,
@@ -131,13 +131,13 @@ export const southernGhegSubDialect: Subdialect = {
 };
 
 export const GhegDialect: Dialect = {
-  id: 1,
+  id: "gheg-dialect",
   name: "Gheg",
   description: `Spoken in most of Albania north of the Shkumbin river, as well as in Kosovo, Montenegro, Serbia, most of the western part of the Republic of Macedonia, and Arbanasi near Zadar in Croatia.`,
-  languageId: 1,
-  colorIndicator: "",
+  languageId: "albania",
+  colorIndicator: "#880e4f",
   nrOfSpeakers: 0,
-  subDialects: [northernGhegSubDialect, southernGhegSubDialect],
+  subDialects: [NorthernGhegSubDialect, SouthernGhegSubDialect],
   geoJson: "",
   area: {
     id: 0,

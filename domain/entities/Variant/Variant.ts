@@ -4,8 +4,8 @@ import { Country } from "../Country/Country";
 import { Village } from "../Village/Village";
 
 export type Variant = {
-  id: number;
-  subDialectId: number;
+  id: string;
+  subDialectId: string;
   name: string;
   description: string;
   colorIndicator: string;

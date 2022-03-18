@@ -14,7 +14,7 @@ type Props = {
 export const ABottomSheet: React.FC<Props> = (props: Props) => {
   const theme = useColorScheme();
   const bottomSheetRef = useRef<BottomSheet>(null);
-  const defaultSnapPoints = ["60%", "70%"];
+  const defaultSnapPoints = ["50%", "60%", "70%"];
 
   const snapPoints = useMemo(() => (props?.snapPoints ? props.snapPoints.map((s) => `${s}%`) : defaultSnapPoints), []);
 
@@ -56,6 +56,7 @@ const styles = (theme: "light" | "dark") =>
     bottomSheet: {
       backgroundColor: Colors[theme].background,
       shadowColor: ColorPalette.Primary,
+
       shadowOffset: {
         width: 20,
         height: 28,

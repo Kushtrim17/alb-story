@@ -1,10 +1,12 @@
+import { DefaultTheme } from "@react-navigation/native";
+
 export const ColorPalette = {
   Primary: "#8352FD",
   Primary2: "#3913B8",
   Secondary: "#00CFFD",
   Secondary2: "#2FB5FC",
   NaturalDark: "#1A2151",
-  NaturalLight: "#E3E8FF",
+  NaturalLight: DefaultTheme.colors.background,
   Black: "#000",
   White: "#FFFFFF",
 };
@@ -17,6 +19,8 @@ export default {
     tabIconDefault: ColorPalette.Black,
     tabIconSelected: ColorPalette.Primary,
     input: ColorPalette.White,
+    tag: ColorPalette.NaturalLight,
+    tagSelected: ColorPalette.White,
   },
   dark: {
     text: ColorPalette.White,
@@ -25,5 +29,7 @@ export default {
     tabIconDefault: ColorPalette.White,
     tabIconSelected: ColorPalette.Primary,
     input: "#211f26",
+    tag: ColorPalette.Black,
+    tagSelected: "#211f26",
   },
 };

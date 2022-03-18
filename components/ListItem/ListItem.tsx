@@ -12,6 +12,7 @@ type Props = {
   title: string;
   subTitle: string;
   itemOrder?: number;
+  colorIndicator?: string;
   onPress?: () => void;
   onLongPress?: () => void;
   extraStyles?: any;
@@ -37,7 +38,7 @@ export default function ListItem(props: Props) {
       onLongPress={props.onLongPress}
     >
       <View style={styles.leftIcon}>
-        <ListItemBlob />
+        <ListItemBlob color={props.colorIndicator} />
         {props.itemOrder ? <Text style={styles.itemOrder}>{props.itemOrder}&nbsp;</Text> : null}
       </View>
       <View style={styles.textContainer}>

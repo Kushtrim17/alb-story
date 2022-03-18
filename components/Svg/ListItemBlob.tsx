@@ -5,7 +5,7 @@ function ListItemBlob(props: SvgProps) {
   return (
     <Svg width={80} height={80} fill="none" {...props}>
       <G>
-        <Ellipse cx={37.928} cy={27} rx={17.524} ry={16.736} fill="#B699FF" />
+        <Ellipse cx={37.928} cy={27} rx={17.524} ry={16.736} fill={props?.color || "#B699FF"} />
       </G>
       <G>
         <Ellipse

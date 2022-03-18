@@ -2,7 +2,7 @@ import { Country } from "../Country/Country";
 import { Dialect } from "../Dialect/Dialect";
 
 export type Language = {
-  id: number;
+  id: string;
   name: string;
   // Indo European etc..
   origin: string;

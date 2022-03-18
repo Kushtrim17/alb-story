@@ -7,7 +7,7 @@ import { Village } from "../Village/Village";
 
 export type VoiceArtifact = {
   id: number;
-  variant?: Variant;
+  variant: Variant;
   subDialect?: Subdialect;
   region?: Area;
   country?: Country;

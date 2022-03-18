@@ -1,5 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
+import BuildInformation from "../../components/BuildInformation/BuildInformation";
 import Margin from "../../components/Margin/Margin";
 import ScreenView from "../../components/Screen";
 import BodyText from "../../components/Text/BodyText";
@@ -19,6 +20,7 @@ export default function DashboardScreen() {
         {AlbanianLanguage.dialects.map((dialect) => (
           <DialectDetails key={dialect.id} dialect={dialect} />
         ))}
+        <BuildInformation />
       </ScrollView>
     </ScreenView>
   );
