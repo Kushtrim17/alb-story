@@ -2,7 +2,7 @@
   "expo": {
     "name": "Alb Story",
     "slug": "alb-story",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -21,7 +21,8 @@
       "config": {
         "googleMapsApiKey": "AIzaSyCuGYYMsnLje8c7LBZV6aYf0Qmnb5QtLP8"
       },
-      "bundleIdentifier": "com.kushtrimabdiu.albstory"
+      "bundleIdentifier": "com.kushtrimabdiu.alb-story",
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {

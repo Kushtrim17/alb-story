@@ -54,6 +54,8 @@ export default function VoiceDetails() {
 
   useEffect(() => {
     const handleNewRecording = async () => {
+      // stop any previous recording that might be playing
+      await recording?.stopAsync();
       const { sound } = await Audio.Sound.createAsync({ uri: params.voiceArtifact.artifactUrl }, { volume: 1 });
 
       setRecording(sound);

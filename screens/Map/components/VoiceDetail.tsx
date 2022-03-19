@@ -1,18 +1,16 @@
 import { Audio } from "expo-av";
 import React, { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import * as Haptics from "expo-haptics";
+import { StyleSheet, View } from "react-native";
 import { ABottomSheet } from "../../../components-external/ABottomSheet/ABottomSheet";
-import HButton from "../../../components/Button/HButton";
+import CircleButton from "../../../components/Button/CircleButton";
 import ListItemSimple from "../../../components/ListItem/ListItemSimple";
 import Margin from "../../../components/Margin/Margin";
 import BodyTextSmall from "../../../components/Text/BodyTextSmall";
 import HeadlineBold from "../../../components/Text/HeadlineBold";
 import Title from "../../../components/Text/Title";
-import { View as ThemedView } from "../../../components/Themed";
-import Layout from "../../../constants/Layout";
 import { getDialectAndSubdialectFromVariant } from "../../../domain/application/application";
 import { VoiceArtifact } from "../../../domain/entities/VoiceArtifact/VoiceArtifact";
-import VoiceArtifactDetails from "../../VoiceDetails/components/VoiceArtifactDetails";
 
 type Props = {
   voiceArtifact?: VoiceArtifact;
@@ -27,6 +25,7 @@ export default function VoiceDetailsSheet(props: Props) {
   const { dialect, subDialect } = getDialectAndSubdialectFromVariant(voiceArtifact?.variant?.id || "");
 
   const handleListenToRecording = async () => {
+    Haptics.selectionAsync();
     try {
       if (recording == null) {
         return;
@@ -50,6 +49,8 @@ export default function VoiceDetailsSheet(props: Props) {
         return;
       }
 
+      // stop any previous recording that might be playing
+      await recording?.stopAsync();
       const { sound } = await Audio.Sound.createAsync({ uri: props.voiceArtifact.artifactUrl }, { volume: 1 });
       setRecording(sound);
     };
@@ -68,28 +69,32 @@ export default function VoiceDetailsSheet(props: Props) {
   }
 
   return (
-    <ABottomSheet shouldShow={props.shouldShow} onClose={props.onClose} snapPoints={[50, 85]}>
+    <ABottomSheet shouldShow={shouldShow} onClose={onClose} snapPoints={[50, 85]}>
       <View style={styles.container}>
-        <HeadlineBold>{props.voiceArtifact?.variant?.name}</HeadlineBold>
-        <BodyTextSmall>
-          {dialect.name} - {subDialect.name}
-        </BodyTextSmall>
-        <Margin size={10} />
-        <Title>Country</Title>
-        <ListItemSimple text={props.voiceArtifact.country?.name!!} hideRightIcon />
-        <Margin size={10} />
-        <Title>City</Title>
-        <ListItemSimple text={props.voiceArtifact.city?.name!!} hideRightIcon />
+        <View style={styles.header}>
+          <View>
+            <HeadlineBold>{props.voiceArtifact?.variant?.name}</HeadlineBold>
+            <BodyTextSmall>
+              {dialect.name} - {subDialect.name}
+            </BodyTextSmall>
+          </View>
+          <View style={styles.listenButton}>
+            <CircleButton name={isPlaying ? "stop-outline" : "play-outline"} onPress={handleListenToRecording} />
+          </View>
+        </View>
         <Margin size={10} />
         <Title>Speaker</Title>
         <ListItemSimple text={props.voiceArtifact.speakerName} hideRightIcon />
         <Margin size={10} />
+        <Title>City</Title>
+        <ListItemSimple text={props.voiceArtifact.city?.name!!} hideRightIcon />
+        <Margin size={10} />
+        <Title>Country</Title>
+        <ListItemSimple text={props.voiceArtifact.country?.name!!} hideRightIcon />
+        <Margin size={10} />
         <Title>Recorded by</Title>
         <ListItemSimple text={props.voiceArtifact.recordedBy.join(" & ")} hideRightIcon />
         <Margin size={10} />
-        <View style={styles.listenButton}>
-          <HButton label={isPlaying ? "Pause" : "Listen"} onPress={handleListenToRecording} />
-        </View>
       </View>
     </ABottomSheet>
   );
@@ -101,9 +106,14 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
   },
+  header: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   listenButton: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    alignItems: "center",
   },
 });

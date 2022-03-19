@@ -23,14 +23,14 @@ export default function VoiceArtifactDetails(props: Props) {
         {dialect.name} - {subDialect.name}
       </BodyTextSmall>
       <Margin size={10} />
-      <Title>Country</Title>
-      <ListItemSimple text={voiceArtifact.country?.name!!} hideRightIcon />
+      <Title>Speaker</Title>
+      <ListItemSimple text={voiceArtifact.speakerName} hideRightIcon />
       <Margin size={10} />
       <Title>City</Title>
       <ListItemSimple text={voiceArtifact.city?.name!!} hideRightIcon />
       <Margin size={10} />
-      <Title>Speaker</Title>
-      <ListItemSimple text={voiceArtifact.speakerName} hideRightIcon />
+      <Title>Country</Title>
+      <ListItemSimple text={voiceArtifact.country?.name!!} hideRightIcon />
       <Margin size={10} />
       <Title>Recorded by</Title>
       <ListItemSimple text={voiceArtifact.recordedBy.join(" & ")} hideRightIcon />

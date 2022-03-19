@@ -24,6 +24,10 @@ export default function MapScreen() {
     longitudeDelta: 5.0421,
   };
 
+  const isSelected = (id: number) => {
+    return selectedVoiceArtifact?.id === id;
+  };
+
   const handleShowFilters = () => {
     setShowFilters(true);
   };
@@ -65,7 +69,9 @@ export default function MapScreen() {
         {filteredVoiceArtefacts.map((voice) => (
           <Marker
             key={voice.id}
-            pinColor={getColorIndicator(voice)}
+            identifier={voice.id.toString()}
+            // get a better color to indicate that pin is selected
+            pinColor={isSelected(voice.id) ? "red" : getColorIndicator(voice)}
             onSelect={(index) => console.log(`this is it ${index}`)}
             coordinate={{ latitude: voice.coordinates[0], longitude: voice.coordinates[1] }}
             onPress={() => handleMarkerClicked(voice)}
