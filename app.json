@@ -34,7 +34,9 @@
           "apiKey": "AIzaSyAwdrjwmFelEHesPkM8H0GxwzOtNVHFoRg"
         }
       },
-      "package": "com.kushtrimabdiu.albstory"
+      "versionCode": 2,
+      "package": "com.kushtrimabdiu.albstory",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

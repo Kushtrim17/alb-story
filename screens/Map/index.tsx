@@ -16,7 +16,7 @@ export default function MapScreen() {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedVoiceArtifact, setSelectedVoiceArtifact] = useState<VoiceArtifact>();
   const [filteredVoiceArtefacts, setFilteredVoiceArtefacts] = useState(albanianVoices);
-  const [shouldShowVoiceArtifactDetails, setShouldShowVoiceArtifactDetails] = useState(false);
+  const [shouldShowVoiceArtifactDetails, setShouldShowVoiceArtifactDetails] = useState(true);
   const region = {
     latitude: 41.350106,
     longitude: 20.526966,

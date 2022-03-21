@@ -18,14 +18,16 @@ type ParamList = {
 };
 
 export default function VoiceDetails() {
-  const { params } = useRoute<RouteProp<ParamList, "VoiceDetails">>();
+  const {
+    params: { voiceArtifact },
+  } = useRoute<RouteProp<ParamList, "VoiceDetails">>();
   const navigation = useNavigation();
   const [recording, setRecording] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const region = {
-    latitude: params.voiceArtifact.coordinates[0],
-    longitude: params.voiceArtifact.coordinates[1],
+    latitude: voiceArtifact.coordinates[0],
+    longitude: voiceArtifact.coordinates[1],
     latitudeDelta: 1.0922,
     longitudeDelta: 2.0421,
   };
@@ -54,35 +56,33 @@ export default function VoiceDetails() {
 
   useEffect(() => {
     const handleNewRecording = async () => {
-      // stop any previous recording that might be playing
-      await recording?.stopAsync();
-      const { sound } = await Audio.Sound.createAsync({ uri: params.voiceArtifact.artifactUrl }, { volume: 1 });
-
+      const { sound } = await Audio.Sound.createAsync({ uri: voiceArtifact.artifactUrl }, { volume: 1 });
       setRecording(sound);
     };
 
     handleNewRecording();
-
-    return () => {
-      recording?.stopAsync();
-      setIsPlaying(false);
-      setRecording(null);
-    };
   }, []);
+
+  const handleGoBack = async () => {
+    setIsPlaying(false);
+    await recording?.stopAsync();
+
+    navigation.goBack();
+  };
 
   return (
     <View>
       <View style={styles.backButton}>
-        <CircleButton name="chevron-back" onPress={() => navigation.goBack()} />
+        <CircleButton name="chevron-back" onPress={handleGoBack} />
       </View>
       <ScrollView>
         <MapView style={styles.map} region={region} provider={PROVIDER_GOOGLE} userInterfaceStyle={"dark"}>
           <Marker
-            pinColor={getColorIndicator(params.voiceArtifact)}
-            coordinate={{ latitude: params.voiceArtifact.coordinates[0], longitude: params.voiceArtifact.coordinates[1] }}
+            pinColor={getColorIndicator(voiceArtifact)}
+            coordinate={{ latitude: voiceArtifact.coordinates[0], longitude: voiceArtifact.coordinates[1] }}
           />
         </MapView>
-        <VoiceArtifactDetails voiceArtifact={params.voiceArtifact} />
+        <VoiceArtifactDetails voiceArtifact={voiceArtifact} />
       </ScrollView>
       <ThemedView style={styles.listenButton}>
         <HButton label={isPlaying ? "Pause" : "Listen"} onPress={handleListenToRecording} />

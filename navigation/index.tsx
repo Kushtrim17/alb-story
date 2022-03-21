@@ -16,8 +16,6 @@ import DashboardScreen from "../screens/Dashboard";
 import MapScreen from "../screens/Map";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
 import VoiceDetails from "../screens/VoiceDetails";
 import VoicesScreen from "../screens/Voices";
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from "../types";

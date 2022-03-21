@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { ABottomSheet } from "../../components-external/ABottomSheet/ABottomSheet";
 import { View } from "../../components/Themed";
