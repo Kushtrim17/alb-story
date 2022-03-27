@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import BottomSheet from "@gorhom/bottom-sheet";
+import { StyleSheet, View, Text } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import CircleButton from "../../components/Button/CircleButton";
 import VoiceArtifactsFilterSheet, { Filter } from "../../components/VoiceArtifactsFilterSheet/VoiceArtifactsFilterSheet";
@@ -12,7 +13,6 @@ import VoiceDetailsSheet from "./components/VoiceDetail";
 
 export default function MapScreen() {
   const [artefactFilters, setArtefactFilters] = useState<Filter[]>(AlbanianDialects.map((d) => ({ id: d.id, isSelected: true })));
-
   const [showFilters, setShowFilters] = useState(false);
   const [selectedVoiceArtifact, setSelectedVoiceArtifact] = useState<VoiceArtifact>();
   const [filteredVoiceArtefacts, setFilteredVoiceArtefacts] = useState(albanianVoices);
@@ -23,43 +23,34 @@ export default function MapScreen() {
     latitudeDelta: 5.0922,
     longitudeDelta: 5.0421,
   };
-
   const isSelected = (id: number) => {
     return selectedVoiceArtifact?.id === id;
   };
-
   const handleShowFilters = () => {
     setShowFilters(true);
   };
-
   const handleOnFilter = (id: string) => {
     const filter = artefactFilters.find((f) => f.id === id);
     const updatedFilters: Filter[] = [...artefactFilters.filter((f) => f.id != id), { id, isSelected: !filter?.isSelected }];
     setArtefactFilters(updatedFilters);
   };
-
   const handleMarkerClicked = (voiceArtifact: VoiceArtifact) => {
     setSelectedVoiceArtifact(voiceArtifact);
     setShouldShowVoiceArtifactDetails(true);
   };
-
   const handleVoiceArtifactDetailsClosed = () => {
     setSelectedVoiceArtifact(undefined);
     setShouldShowVoiceArtifactDetails(false);
   };
-
   useEffect(() => {
     const allSelectedDialectIds = artefactFilters.filter((f) => f.isSelected === true).map((f) => f.id);
     const variantIds = getDialectVariantIds(allSelectedDialectIds);
     const filteredVoices = albanianVoices.filter((av) => variantIds.includes(av.variant.id));
-
     setFilteredVoiceArtefacts(filteredVoices);
   }, [artefactFilters]);
-
   const getColorIndicator = (voice: VoiceArtifact) => {
     return getSubDialectColorIndicatorFromVariant(voice.variant.id);
   };
-
   return (
     <View>
       <View style={styles.backButton}>

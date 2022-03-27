@@ -39,7 +39,7 @@ export default function VoiceArtifactsFilterSheet(props: Props) {
         <View style={styles.body}>
           <Headline>Dialects</Headline>
           <Margin size={10} />
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {AlbanianDialects.map((dialect) => (
               <SelectableTag
                 key={dialect.id}
@@ -68,6 +68,9 @@ const styles = StyleSheet.create({
   },
   body: {
     marginTop: 15,
+  },
+  scrollableBody: {
+    backgroundColor: "red",
   },
   subDialectsBody: {
     marginTop: 10,
