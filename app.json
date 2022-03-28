@@ -22,7 +22,7 @@
         "googleMapsApiKey": "AIzaSyCuGYYMsnLje8c7LBZV6aYf0Qmnb5QtLP8"
       },
       "bundleIdentifier": "com.kushtrimabdiu.alb-story",
-      "buildNumber": "2"
+      "buildNumber": "4"
     },
     "android": {
       "adaptiveIcon": {
@@ -34,7 +34,7 @@
           "apiKey": "AIzaSyAwdrjwmFelEHesPkM8H0GxwzOtNVHFoRg"
         }
       },
-      "versionCode": 2,
+      "versionCode": 4,
       "package": "com.kushtrimabdiu.albstory",
       "permissions": []
     },
