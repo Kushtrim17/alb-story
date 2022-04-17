@@ -2,6 +2,27 @@ import { Dialect } from "../../../../entities/Dialect/Dialect";
 import { Subdialect } from "../../../../entities/SubDialect/SubDialect";
 import { Variant } from "../../../../entities/Variant/Variant";
 
+export const EmptyVariantTosk: Variant = {
+  id: "-1",
+  subDialectId: "",
+  name: "",
+  description: "",
+  colorIndicator: "",
+  nrOfSpeakers: 0,
+  geoJson: "",
+  area: {
+    id: 0,
+    name: "",
+    description: "",
+    colorIndicator: "",
+    cities: [],
+    villages: [],
+  },
+  cities: [],
+  villages: [],
+  countries: [],
+};
+
 export const NorthernToskSubDialectWesternVariant: Variant = {
   id: "northern-tosk-sub-dialect-western-variant",
   subDialectId: "northern-tosk-sub-dialect",
@@ -51,7 +72,7 @@ export const NorthernToskSubDialect: Subdialect = {
   description: `Spoken in most of Albania south of the Shkumbin river, with the exception of southern coastal areas on the left (southwestern) side of the Vjosa river. On the coast, the southern border of this area is just south of the town of Vlora.`,
   colorIndicator: "#512da8",
   nrOfSpeakers: 0,
-  variants: [NorthernToskSubDialectWesternVariant, NorthernToskSubDialectEasternVariant],
+  variants: [NorthernToskSubDialectWesternVariant, NorthernToskSubDialectEasternVariant, EmptyVariantTosk],
   geoJson: "",
   area: {
     id: 0,
@@ -130,6 +151,27 @@ export const SouthernToskSubDialect: Subdialect = {
   countries: [],
 };
 
+export const ArvaniticToskVariant: Variant = {
+  id: "arvanitic-tosk-variant",
+  subDialectId: "arvanitic-tosk-sub-dialect",
+  name: "Arvanitic Tosk",
+  description: "",
+  colorIndicator: "",
+  nrOfSpeakers: 0,
+  geoJson: "",
+  area: {
+    id: 0,
+    name: "",
+    description: "",
+    colorIndicator: "",
+    cities: [],
+    villages: [],
+  },
+  cities: [],
+  villages: [],
+  countries: [],
+};
+
 export const ArvaniticToskSubDialect: Subdialect = {
   id: "arvanitic-tosk-sub-dialect",
   dialectId: "tosk-dialect",
@@ -137,7 +179,7 @@ export const ArvaniticToskSubDialect: Subdialect = {
   description: `Spoken traditionally in about 300 villages of central Greece, in particular in Attica, Boeotia, southern Euboia, the northeastern Peloponnese around Corinth, the islands of the Sardonic Gulf, including Salamis, northern Andros, as well as some other parts of the Peloponnese and Phthiotis. This archaic dialect is moribund, though there may still be from 50,000 to 250,000 speakers, mostly older people.`,
   colorIndicator: "#5e35b1",
   nrOfSpeakers: 0,
-  variants: [],
+  variants: [ArvaniticToskVariant],
   geoJson: "",
   area: {
     id: 0,

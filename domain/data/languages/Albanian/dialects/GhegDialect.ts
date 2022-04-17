@@ -2,7 +2,49 @@ import { Dialect } from "../../../../entities/Dialect/Dialect";
 import { Subdialect } from "../../../../entities/SubDialect/SubDialect";
 import { Variant } from "../../../../entities/Variant/Variant";
 
-const NorthernGhegSubDialectWesternVariant: Variant = {
+export const EmptyVariantGheg: Variant = {
+  id: "-1",
+  subDialectId: "",
+  name: "",
+  description: "",
+  colorIndicator: "",
+  nrOfSpeakers: 0,
+  geoJson: "",
+  area: {
+    id: 0,
+    name: "",
+    description: "",
+    colorIndicator: "",
+    cities: [],
+    villages: [],
+  },
+  cities: [],
+  villages: [],
+  countries: [],
+};
+
+export const EmptyVariantTosk: Variant = {
+  id: "-1",
+  subDialectId: "",
+  name: "",
+  description: "",
+  colorIndicator: "",
+  nrOfSpeakers: 0,
+  geoJson: "",
+  area: {
+    id: 0,
+    name: "",
+    description: "",
+    colorIndicator: "",
+    cities: [],
+    villages: [],
+  },
+  cities: [],
+  villages: [],
+  countries: [],
+};
+
+export const NorthernGhegSubDialectWesternVariant: Variant = {
   id: "northern-gheg-sub-dialect-western-variant",
   subDialectId: "northern-gheg-sub-dialect",
   name: "Western variant",
@@ -23,7 +65,7 @@ const NorthernGhegSubDialectWesternVariant: Variant = {
   countries: [],
 };
 
-const NorthernGhegSubDialectEasternVariant: Variant = {
+export const NorthernGhegSubDialectEasternVariant: Variant = {
   id: "northern-gheg-sub-dialect-eastern-variant",
   subDialectId: "northern-gheg-sub-dialect",
   name: "Eastern variant",
@@ -51,7 +93,7 @@ export const NorthernGhegSubDialect: Subdialect = {
   description: `Spoken in most Albanian-speaking regions north of the Mat river. These include Ulqin [Ulcinj], Kraja and Podgorica in Montenegro, the Shkodra region, Lezha, Malësia e Madhe, Dukagjin, Puka, Mirdita, Plava, Malësia e Gjakovës, Luma, Has, Kosovo and Presheva [Preševo].`,
   colorIndicator: "#ad1457",
   nrOfSpeakers: 0,
-  variants: [NorthernGhegSubDialectWesternVariant, NorthernGhegSubDialectEasternVariant],
+  variants: [NorthernGhegSubDialectWesternVariant, NorthernGhegSubDialectEasternVariant, EmptyVariantGheg],
   geoJson: "",
   area: {
     id: 0,

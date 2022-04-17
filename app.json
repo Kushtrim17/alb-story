@@ -40,6 +40,19 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": ["sentry-expo"],
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "kushtrim-ab",
+            "project": "alb-story",
+            "authToken": "b2ef632becc14ea3aa88c63c77706b5298d5c415e2794a9596fda08c24b06661"
+          }
+        }
+      ]
     }
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import BuildInformation from "../../components/BuildInformation/BuildInformation";
 import Margin from "../../components/Margin/Margin";

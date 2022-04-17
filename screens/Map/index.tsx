@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import BottomSheet from "@gorhom/bottom-sheet";
-import { StyleSheet, View, Text } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import CircleButton from "../../components/Button/CircleButton";
 import VoiceArtifactsFilterSheet, { Filter } from "../../components/VoiceArtifactsFilterSheet/VoiceArtifactsFilterSheet";
@@ -45,22 +44,23 @@ export default function MapScreen() {
   useEffect(() => {
     const allSelectedDialectIds = artefactFilters.filter((f) => f.isSelected === true).map((f) => f.id);
     const variantIds = getDialectVariantIds(allSelectedDialectIds);
-    const filteredVoices = albanianVoices.filter((av) => variantIds.includes(av.variant.id));
+    const filteredVoices = albanianVoices.filter((av) => variantIds.includes(av?.variant?.id));
     setFilteredVoiceArtefacts(filteredVoices);
   }, [artefactFilters]);
   const getColorIndicator = (voice: VoiceArtifact) => {
-    return getSubDialectColorIndicatorFromVariant(voice.variant.id);
+    return getSubDialectColorIndicatorFromVariant(voice?.variant?.id);
   };
   return (
     <View>
       <View style={styles.backButton}>
         <CircleButton name="filter-outline" onPress={handleShowFilters} />
       </View>
-      <MapView style={styles.map} initialRegion={region} provider={PROVIDER_GOOGLE} userInterfaceStyle="dark">
+      <MapView style={styles.map} initialRegion={region} provider={PROVIDER_GOOGLE}>
         {filteredVoiceArtefacts.map((voice) => (
           <Marker
             key={voice.id}
             identifier={voice.id.toString()}
+            description={voice.id.toString()}
             // get a better color to indicate that pin is selected
             pinColor={isSelected(voice.id) ? "red" : getColorIndicator(voice)}
             onSelect={(index) => console.log(`this is it ${index}`)}
