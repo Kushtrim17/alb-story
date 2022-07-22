@@ -60,7 +60,7 @@ export default function MapScreen() {
           <Marker
             key={voice.id}
             identifier={voice.id.toString()}
-            description={voice.id.toString()}
+            // description={voice.id.toString()}
             // get a better color to indicate that pin is selected
             pinColor={isSelected(voice.id) ? "red" : getColorIndicator(voice)}
             onSelect={(index) => console.log(`this is it ${index}`)}

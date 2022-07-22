@@ -8,7 +8,7 @@ type Props = {
   start: { x: number; y: number };
   end: { x: number; y: number };
   styles?: object;
-  children?: React.ReactNode;
+  children?: any;
 };
 
 export default function HLinearGradient(props: Props) {

@@ -3,6 +3,7 @@ import { DefaultTheme } from "@react-navigation/native";
 export const ColorPalette = {
   Primary: "#8352FD",
   Primary2: "#3913B8",
+  Highlight: "#7B1FA2",
   Secondary: "#00CFFD",
   Secondary2: "#2FB5FC",
   NaturalDark: "#1A2151",

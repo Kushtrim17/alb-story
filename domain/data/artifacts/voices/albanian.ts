@@ -162,17 +162,22 @@ import { Devnenskoje } from "../../countries/Ukraine/Villages/Devnenskoje";
 import { Georgievka } from "../../countries/Ukraine/Villages/Georgievka";
 import { Karakurt } from "../../countries/Ukraine/Villages/Karakurt";
 import {
+  CentralGhegSubDialect,
   EmptyVariantGheg,
   EmptyVariantTosk,
   GhegDialect,
+  NorthernGhegSubDialect,
   NorthernGhegSubDialectEasternVariant,
   NorthernGhegSubDialectWesternVariant,
+  SouthernGhegSubDialect,
   SouthernGhegSubDialectCentralVariant,
   SouthernGhegSubDialectSouthernVariant,
 } from "../../languages/Albanian/dialects/GhegDialect";
 import {
   ArvaniticToskSubDialect,
   ArvaniticToskVariant,
+  ItaloAlbanianToskSubDialect,
+  NorthernToskSubDialect,
   NorthernToskSubDialectEasternVariant,
   NorthernToskSubDialectWesternVariant,
   SouthernToskSubDialect,
@@ -180,6 +185,17 @@ import {
   SouthernToskSubDialectLabVariant,
   ToskDialect,
 } from "../../languages/Albanian/dialects/ToskDialect";
+import { NorthMacedonia } from "../../countries/NorthMacedonia/macedonia";
+import { Resen } from "../../countries/NorthMacedonia/Cities/Resen";
+import { Asamati } from "../../countries/NorthMacedonia/Villages/Asamati";
+import { Sopocka } from "../../countries/NorthMacedonia/Villages/Sopocka";
+import { Struga } from "../../countries/NorthMacedonia/Cities/Struga";
+import { Frëngova } from "../../countries/NorthMacedonia/Villages/Frëngova";
+import { Veleshta } from "../../countries/NorthMacedonia/Villages/Veleshta";
+import { Tatesh } from "../../countries/NorthMacedonia/Villages/Tatesh";
+import { Dollogozhd } from "../../countries/NorthMacedonia/Villages/Dollogozhd";
+import { Prilep } from "../../countries/NorthMacedonia/Cities/Prilep";
+import { Cërnilishta } from "../../countries/NorthMacedonia/Villages/Cërnilishta";
 
 export const albanianVoices: VoiceArtifact[] = [
   {
@@ -1968,6 +1984,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 32,
     variant: EmptyVariantGheg,
     dialect: GhegDialect,
+    subDialect: NorthernGhegSubDialect,
     country: Croatia,
     city: Zadar,
     speakerName: "Nino Vladovic Relja (Zanin)",
@@ -1985,6 +2002,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 33,
     variant: EmptyVariantGheg,
     dialect: GhegDialect,
+    subDialect: NorthernGhegSubDialect,
     country: Croatia,
     city: Zadar,
     speakerName: "Nino Vladovic Relja (Zanin)",
@@ -2002,6 +2020,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 34,
     variant: EmptyVariantGheg,
     dialect: GhegDialect,
+    subDialect: NorthernGhegSubDialect,
     country: Croatia,
     city: Zadar,
     speakerName: "Lidija Kotlar, née Mazija",
@@ -2019,6 +2038,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 35,
     variant: EmptyVariantGheg,
     dialect: GhegDialect,
+    subDialect: NorthernGhegSubDialect,
     country: Croatia,
     city: Zadar,
     speakerName: "Lidija Kotlar, née Mazija",
@@ -2224,6 +2244,7 @@ export const albanianVoices: VoiceArtifact[] = [
   {
     id: 138,
     variant: EmptyVariantTosk,
+    subDialect: ItaloAlbanianToskSubDialect,
     dialect: ToskDialect,
     country: Italy,
     city: Apulia,
@@ -2243,6 +2264,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 20,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: Pallagorio,
@@ -2262,6 +2284,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 29,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: SanNicolaDellAlto,
@@ -2281,6 +2304,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 26,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: Marcedusa,
@@ -2300,6 +2324,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 27,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: Marcedusa,
@@ -2319,6 +2344,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 21,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: Andali,
@@ -2338,6 +2364,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 22,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: Andali,
@@ -2376,6 +2403,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 24,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: CaraffaDiCatanzaro,
@@ -2395,6 +2423,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 23,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: CaraffaDiCatanzaro,
@@ -2414,6 +2443,7 @@ export const albanianVoices: VoiceArtifact[] = [
     id: 28,
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
+    subDialect: ItaloAlbanianToskSubDialect,
     country: Italy,
     city: Calabria,
     village: VenadiMaida,
@@ -2433,6 +2463,7 @@ export const albanianVoices: VoiceArtifact[] = [
     variant: EmptyVariantTosk,
     dialect: ToskDialect,
     country: Italy,
+    subDialect: ItaloAlbanianToskSubDialect,
     city: Calabria,
     village: Zangarona,
     speakerName: "Anonymous female",
@@ -2817,5 +2848,126 @@ export const albanianVoices: VoiceArtifact[] = [
     // 37.966667, 24.766667
     coordinates: [37.966667, 24.766667],
     artifactUrl: "http://dialects.albanianlanguage.net/GR/audios/AD129_GR_Andros01.mp3",
+  },
+
+  {
+    id: 77,
+    variant: NorthernToskSubDialectEasternVariant,
+    subDialect: NorthernToskSubDialect,
+    country: NorthMacedonia,
+    city: Resen,
+    village: Sopocka,
+    speakerName: "Mazezë Shaqiri",
+    speakerDescription: "Mazezë Shaqiri, born in 1960.",
+    subject: "On village life in the region.",
+    recorderdOn: "2008-12-03",
+    recordedBy: ["Robert Elsie", "Artur Metani"],
+    duration: 178,
+    // 41.066667, 21.050000
+    coordinates: [41.066667, 21.05],
+    artifactUrl: "http://dialects.albanianlanguage.net/MK/audios/AD077_MK_Soposka01.mp3",
+  },
+  {
+    id: 78,
+    variant: NorthernToskSubDialectEasternVariant,
+    subDialect: NorthernToskSubDialect,
+    country: NorthMacedonia,
+    city: Resen,
+    village: Asamati,
+    speakerName: "Allahidin Mehmeti",
+    speakerDescription: "Allahidin Mehmeti, born in 1962.",
+    subject: "On life in the region.",
+    recorderdOn: "2008-12-03",
+    recordedBy: ["Robert Elsie", "Artur Metani"],
+    duration: 292,
+    // 40.983333, 21.050000
+    coordinates: [40.983333, 21.05],
+    artifactUrl: "http://dialects.albanianlanguage.net/MK/audios/AD078_MK_Asamati01.mp3",
+  },
+  {
+    id: 76,
+    variant: NorthernToskSubDialectEasternVariant,
+    subDialect: NorthernToskSubDialect,
+    country: NorthMacedonia,
+    city: Struga,
+    village: Frëngova,
+    speakerName: "Milaim Qamili",
+    speakerDescription: "Milaim Qamili, born in 1938.",
+    subject: "On the history of the village of Frëngova.",
+    recorderdOn: "2008-12-03",
+    recordedBy: ["Robert Elsie", "Artur Metani"],
+    duration: 105,
+    // 41.150000, 20.616667
+    coordinates: [41.15, 20.616667],
+    artifactUrl: "http://dialects.albanianlanguage.net/MK/audios/AD076_MK_Frengova01.mp3",
+  },
+  {
+    id: 75,
+    variant: NorthernToskSubDialectEasternVariant,
+    subDialect: NorthernToskSubDialect,
+    country: NorthMacedonia,
+    city: Struga,
+    speakerName: "Anonymous male speaker",
+    speakerDescription: "Anonymous male speaker, born in 1981.",
+    subject: "On local dialects.",
+    recorderdOn: "2008-12-02",
+    recordedBy: ["Robert Elsie", "Artur Metani"],
+    duration: 65,
+    // 41.174794, 20.660626
+    coordinates: [41.174794, 20.660626],
+    artifactUrl: "http://dialects.albanianlanguage.net/MK/audios/AD075_MK_Struga01.mp3",
+  },
+  {
+    id: 74,
+    variant: SouthernGhegSubDialectCentralVariant,
+    subDialect: SouthernGhegSubDialect,
+    country: NorthMacedonia,
+    city: Struga,
+    village: Veleshta,
+    speakerName: "Milaim Reçi",
+    speakerDescription: "Milaim Reçi, born in 1939.",
+    subject: "On local history.",
+    recorderdOn: "2008-12-02",
+    recordedBy: ["Robert Elsie", "Artur Metani"],
+    duration: 192,
+    // 41.233333, 20.633333
+    coordinates: [41.233333, 20.633333],
+    artifactUrl: "http://dialects.albanianlanguage.net/MK/audios/AD074_MK_Veleshta01.mp3",
+  },
+  {
+    id: 168,
+    variant: SouthernGhegSubDialectCentralVariant,
+    subDialect: CentralGhegSubDialect,
+    country: NorthMacedonia,
+    city: Struga,
+    village: Tatesh,
+    speakerName: "Qanie Saliu",
+    speakerDescription: "Qanie Saliu, aged 75.",
+    subject:
+      "Responses to linguistic questionnaire. Taken from: Lumnie Yusufi,The Central Gegic dialect group inMacedonia (Wiesbaden: Harrassowitz,2011), track 3.2",
+    recorderdOn: "2006-07-24",
+    recordedBy: ["Lumnie Yusufi"],
+    duration: 181,
+    // 41.266667, 20.683333
+    coordinates: [41.266667, 20.683333],
+    artifactUrl: "http://dialects.albanianlanguage.net/MK/audios/AD168_MK_Tatesh01.mp3",
+  },
+  {
+    id: 128,
+    variant: SouthernGhegSubDialectCentralVariant,
+    subDialect: CentralGhegSubDialect,
+    country: NorthMacedonia,
+    city: Prilep,
+    village: Cërnilishta,
+    speakerName: "Nurie Kadriu",
+    speakerDescription: "Nurie Kadriu, born in 1956 housewife.",
+    subject: "Folktale Pepellashka (Cinderella).",
+    // december 2008
+    recorderdOn: "2008-12-23",
+    recordedBy: ["Robert Elsie", "Mustafa Ibrahimi (Tetova)", "Rexhep Ismajli (Prishtina)"],
+    duration: 229,
+    // 41.383333, 21.500000
+    coordinates: [41.383333, 21.5],
+    artifactUrl: "http://dialects.albanianlanguage.net/MK/audios/AD128_MK_Cernilishta01.mp3",
   },
 ];

@@ -1,32 +1,37 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import HLinearGradient from "../../components-external/HLinearGradient/HLinearGradient";
-import { Text, View } from "../../components/Themed";
+import { Text, View } from "../Themed";
 import { ColorPalette } from "../../constants/Colors";
 import Layout from "../../constants/Layout";
 import { getNrOfRecordingsFromSubDialect } from "../../domain/application/application";
-import { Country } from "../../domain/entities/Country/Country";
 import { Dialect } from "../../domain/entities/Dialect/Dialect";
 import { Subdialect } from "../../domain/entities/SubDialect/SubDialect";
 import Margin from "../Margin/Margin";
-import RecordingSvg from "../Svg/Recording";
 
 type Props = {
-  country: Country;
+  subDialect: Subdialect;
+  onPress: (subDialect: Subdialect) => void;
 };
 
-export default function CountryCard(props: Props) {
-  const { country } = props;
-  const colors = [ColorPalette.Primary, ColorPalette.Primary2];
+export default function SubDialect(props: Props) {
+  const { subDialect, onPress } = props;
+  const colors = [subDialect.colorIndicator, ColorPalette.Highlight];
+
+  const getNrOfRecordings = () => {
+    return `${getNrOfRecordingsFromSubDialect(subDialect)} voice recordings`;
+  };
 
   return (
-    <HLinearGradient colors={colors} start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} styles={styles.container}>
-      <View style={styles.bottomContainer}>
-        <Text style={styles.cardTitle}>{country?.name}</Text>
-        {/* <Text style={styles.cardSubTitle}>{getNrOfRecordings()}</Text> */}
-        <Margin />
-      </View>
-    </HLinearGradient>
+    <TouchableOpacity onPress={() => onPress(subDialect)}>
+      <HLinearGradient colors={colors} start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} styles={styles.container}>
+        <View style={styles.bottomContainer}>
+          <Text style={styles.cardTitle}>{subDialect?.name}</Text>
+          <Text style={styles.cardSubTitle}>{getNrOfRecordings()}</Text>
+          <Margin />
+        </View>
+      </HLinearGradient>
+    </TouchableOpacity>
   );
 }
 

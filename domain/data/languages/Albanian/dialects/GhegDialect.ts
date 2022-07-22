@@ -4,7 +4,7 @@ import { Variant } from "../../../../entities/Variant/Variant";
 
 export const EmptyVariantGheg: Variant = {
   id: "-1",
-  subDialectId: "",
+  subDialectId: "northern-gheg-sub-dialect",
   name: "",
   description: "",
   colorIndicator: "",
@@ -47,7 +47,7 @@ export const EmptyVariantTosk: Variant = {
 export const NorthernGhegSubDialectWesternVariant: Variant = {
   id: "northern-gheg-sub-dialect-western-variant",
   subDialectId: "northern-gheg-sub-dialect",
-  name: "Western variant",
+  name: "Western Variant",
   description: `Spoken in regions to the west of a vertical line from the Montenegrin-Albanian border initially down the boundary between the Prefecture of Shkodra and the Prefecture of Kukës, including Theth and Shala in Dukagjin and areas west thereof such as Shkodra, Lezha, Malësia e Madhe and Montenegro`,
   colorIndicator: "",
   nrOfSpeakers: 0,
@@ -68,7 +68,7 @@ export const NorthernGhegSubDialectWesternVariant: Variant = {
 export const NorthernGhegSubDialectEasternVariant: Variant = {
   id: "northern-gheg-sub-dialect-eastern-variant",
   subDialectId: "northern-gheg-sub-dialect",
-  name: "Eastern variant",
+  name: "Eastern Variant",
   description: `Spoken in regions to the east of a vertical line from the Montenegrin-Albanian border initially down the boundary between the Prefecture of Shkodra and the Prefecture of Kukës, including Nikaj-Merturi and Puka, and areas east thereof such as Gashi, Tropoja, Malësia e Gjakovës, Has, Kukës, Kosovo and Presheva.`,
   colorIndicator: "",
   nrOfSpeakers: 0,
@@ -132,7 +132,7 @@ export const SouthernGhegSubDialectCentralVariant: Variant = {
 export const SouthernGhegSubDialectSouthernVariant: Variant = {
   id: "southern-gheg-sub-dialect-southern-variant",
   subDialectId: "southern-gheg-sub-dialect",
-  name: "Southern variant",
+  name: "Southern Variant",
   description: `Spoken in most of the coastal region from the mouth of the Mat or Ishëm rivers to the mouth of the Shkumbin river, including Durrës, Tirana, and Kavaja, as well as inland areas such as the Tirana mountain range, Martanesh and Çermenika, Elbasan and the valley of the Shkumbin river.`,
   colorIndicator: "",
   nrOfSpeakers: 0,
@@ -172,6 +172,28 @@ export const SouthernGhegSubDialect: Subdialect = {
   countries: [],
 };
 
+export const CentralGhegSubDialect: Subdialect = {
+  id: "central-gheg-sub-dialect",
+  dialectId: "gheg-dialect",
+  name: "Central Gheg",
+  description: ``,
+  colorIndicator: "#c2185b",
+  nrOfSpeakers: 0,
+  variants: [SouthernGhegSubDialectCentralVariant, SouthernGhegSubDialectSouthernVariant],
+  geoJson: "",
+  area: {
+    id: 0,
+    name: "",
+    description: "",
+    colorIndicator: "",
+    cities: [],
+    villages: [],
+  },
+  cities: [],
+  villages: [],
+  countries: [],
+};
+
 export const GhegDialect: Dialect = {
   id: "gheg-dialect",
   name: "Gheg",
@@ -179,7 +201,7 @@ export const GhegDialect: Dialect = {
   languageId: "albania",
   colorIndicator: "#880e4f",
   nrOfSpeakers: 0,
-  subDialects: [NorthernGhegSubDialect, SouthernGhegSubDialect],
+  subDialects: [NorthernGhegSubDialect, CentralGhegSubDialect, SouthernGhegSubDialect],
   geoJson: "",
   area: {
     id: 0,

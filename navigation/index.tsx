@@ -12,10 +12,12 @@ import { ColorSchemeName, Pressable } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import ContributorsScreen from "../screens/Contributors";
 import DashboardScreen from "../screens/Dashboard";
 import MapScreen from "../screens/Map";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
+import SubDialectDetailsScreen from "../screens/SubDialectDetails";
 import VoiceDetails from "../screens/VoiceDetails";
 import VoicesScreen from "../screens/Voices";
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from "../types";
@@ -41,6 +43,13 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: "Oops!" }} />
       <Stack.Screen name="VoiceDetails" component={VoiceDetails} options={{ headerShown: false }} />
+      <Stack.Screen name="Contributors" component={ContributorsScreen} options={{}} />
+      <Stack.Screen
+        name="Subdialect"
+        component={SubDialectDetailsScreen}
+        options={{ headerShown: false }}
+        // options={({ route }) => ({ title: route.params.subDialect.name })}
+      />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>

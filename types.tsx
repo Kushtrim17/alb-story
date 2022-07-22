@@ -6,6 +6,7 @@
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { CompositeScreenProps, NavigatorScreenParams } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { Subdialect } from "./domain/entities/SubDialect/SubDialect";
 import { VoiceArtifact } from "./domain/entities/VoiceArtifact/VoiceArtifact";
 
 declare global {
@@ -16,6 +17,8 @@ declare global {
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
+  Contributors: undefined;
+  Subdialect: { subDialect: Subdialect };
   Modal: undefined;
   NotFound: undefined;
   VoiceDetails: { voiceArtifact: VoiceArtifact };

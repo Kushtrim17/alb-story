@@ -7,7 +7,7 @@ import { Italy } from "../data/countries/Italy/italy";
 import { Montenegro } from "../data/countries/Montenegro/montenegro";
 import { Turkey } from "../data/countries/Turkey/Turkey";
 import { Ukraine } from "../data/countries/Ukraine/ukraine";
-import { AlbanianDialects } from "../data/languages/Albanian/albanian";
+import { AlbanianDialects, AlbanianLanguage } from "../data/languages/Albanian/albanian";
 import { Country } from "../entities/Country/Country";
 import { Dialect } from "../entities/Dialect/Dialect";
 import { Subdialect } from "../entities/SubDialect/SubDialect";
@@ -101,8 +101,24 @@ export const getCountries = () => {
   return [Albania, Bulgaria, Croatia, Greece, Italy, Montenegro, Turkey, Ukraine];
 };
 
+export const getCountryNrOfRecordings = (name: string) => {
+  return albanianVoices.filter((a) => a.country?.name === name)?.length;
+};
+
+export const getContributors = () => {
+  return [...new Set(albanianVoices.map((a) => a.recordedBy).flat())];
+};
+
 export const getNumberOfVariants = (subDialect: Subdialect) => {};
+
+export const getSubDialectRecorings = (subDialect: Subdialect) => {
+  return albanianVoices.filter((v) => v.subDialect?.id === subDialect.id || v.variant?.subDialectId === subDialect.id);
+};
 
 export const getNrOfRecordingsFromSubDialect = (subDialect: Subdialect) => {
   return albanianVoices.filter((v) => v.subDialect?.id === subDialect.id || v.variant?.subDialectId === subDialect.id)?.length || 0;
+};
+
+export const getDialectById = (dialectId: string) => {
+  return AlbanianLanguage.dialects.find((dialect) => dialect.id === dialectId);
 };

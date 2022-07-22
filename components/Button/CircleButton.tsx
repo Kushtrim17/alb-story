@@ -7,11 +7,13 @@ type Props = {
   onPress: () => void;
   name: React.ComponentProps<typeof Ionicons>["name"];
   size?: number;
+  extraSmall?: number;
   small?: boolean;
 };
 
 export default function CircleButton(props: Props) {
   const isSmall = props.small || false;
+  const isExtraSmall = props.extraSmall || false;
 
   return (
     <Pressable style={styles(isSmall).container} onPress={props.onPress}>
@@ -29,13 +31,6 @@ const styles = (isSmall: boolean) =>
       borderRadius: isSmall ? 20 : 25,
       alignItems: "center",
       justifyContent: "center",
-      shadowColor: "black",
-      shadowOffset: {
-        width: 7,
-        height: 6,
-      },
-      shadowOpacity: 0.37,
-      shadowRadius: 7.49,
       elevation: 1,
     },
     icon: {},

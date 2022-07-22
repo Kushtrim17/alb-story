@@ -1,36 +1,36 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import HLinearGradient from "../../components-external/HLinearGradient/HLinearGradient";
-import { Text, View } from "../../components/Themed";
+import { Text, View } from "../Themed";
 import { ColorPalette } from "../../constants/Colors";
 import Layout from "../../constants/Layout";
-import { getNrOfRecordingsFromSubDialect } from "../../domain/application/application";
-import { Dialect } from "../../domain/entities/Dialect/Dialect";
-import { Subdialect } from "../../domain/entities/SubDialect/SubDialect";
 import Margin from "../Margin/Margin";
-import RecordingSvg from "../Svg/Recording";
+import { Variant } from "../../domain/entities/Variant/Variant";
 
 type Props = {
-  subDialect: Subdialect;
+  variant: Variant;
+  color: string;
+  onPress?: (variant: Variant) => void;
 };
 
-export default function DialectCard(props: Props) {
-  const { subDialect } = props;
-  const colors = [subDialect.colorIndicator, "#7B1FA2"];
+export default function VariantCard(props: Props) {
+  const { variant, onPress, color } = props;
+  const colors = [color, ColorPalette.Highlight];
 
-  const getNrOfRecordings = () => {
-    return `${getNrOfRecordingsFromSubDialect(subDialect)} voice recordings`;
+  const handleOnPress = (variant: Variant) => {
+    if (!onPress) return;
+
+    onPress(variant);
   };
+
+  if (variant?.name == "") {
+    return null;
+  }
 
   return (
     <HLinearGradient colors={colors} start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} styles={styles.container}>
-      {/* <View style={{ marginTop: -140 }}>
-        <RecordingSvg />
-      </View> */}
-      {/* <RecordingSvg /> */}
       <View style={styles.bottomContainer}>
-        <Text style={styles.cardTitle}>{subDialect?.name}</Text>
-        <Text style={styles.cardSubTitle}>{getNrOfRecordings()}</Text>
+        <Text style={styles.cardTitle}>{variant?.name.replace("Variant", "")}</Text>
         <Margin />
       </View>
     </HLinearGradient>
@@ -39,18 +39,19 @@ export default function DialectCard(props: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 250,
-    width: Layout.window.width - 150,
-    maxWidth: 400,
+    height: 70,
+    width: Layout.window.width - 200,
+    maxWidth: 150,
     backgroundColor: "red",
     marginBottom: 20,
+    marginRight: 20,
     borderRadius: 30,
     justifyContent: "center",
     alignItems: "center",
   },
   bottomContainer: {
     position: "absolute",
-    height: 125,
+    height: 70,
     bottom: 0,
     backgroundColor: ColorPalette.Black,
     width: "100%",

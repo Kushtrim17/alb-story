@@ -1,3 +1,4 @@
+import { ColorPalette } from "../../../../../constants/Colors";
 import { Dialect } from "../../../../entities/Dialect/Dialect";
 import { Subdialect } from "../../../../entities/SubDialect/SubDialect";
 
@@ -7,7 +8,7 @@ export const TransitionalSubDialect: Subdialect = {
   name: "Transitional",
   description:
     "Spoken in a ten to twenty kilometre horizontal belt along the Shkumbin river valley, mostly on the left (south) side of the river, including the northern Myzeqe plain, Dumreja, Shpat, Polis and Qukës.",
-  colorIndicator: "#7B1FA2",
+  colorIndicator: ColorPalette.Highlight,
   nrOfSpeakers: 0,
   variants: [],
   geoJson: "",
@@ -29,7 +30,7 @@ export const TransitionalDialect: Dialect = {
   name: "Transitional",
   description: `Spoken in a ten to twenty kilometre horizontal belt along the Shkumbin river valley, mostly on the left (south) side of the river, including the northern Myzeqe plain, Dumreja, Shpat, Polis and Qukës.`,
   languageId: "albanian",
-  colorIndicator: "#7B1FA2",
+  colorIndicator: ColorPalette.Highlight,
   nrOfSpeakers: 0,
   subDialects: [],
   geoJson: "",
