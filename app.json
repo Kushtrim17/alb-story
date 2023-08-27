@@ -2,7 +2,7 @@
   "expo": {
     "name": "Alb Story",
     "slug": "alb-story",
-    "version": "1.1.0",
+    "version": "1.1.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -22,7 +22,7 @@
         "googleMapsApiKey": "AIzaSyCuGYYMsnLje8c7LBZV6aYf0Qmnb5QtLP8"
       },
       "bundleIdentifier": "com.kushtrimabdiu.alb-story",
-      "buildNumber": "4"
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {
@@ -34,25 +34,18 @@
           "apiKey": "AIzaSyAwdrjwmFelEHesPkM8H0GxwzOtNVHFoRg"
         }
       },
-      "versionCode": 5,
+      "versionCode": 7,
       "package": "com.kushtrimabdiu.albstory",
       "permissions": []
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": ["sentry-expo"],
-    "hooks": {
-      "postPublish": [
-        {
-          "file": "sentry-expo/upload-sourcemaps",
-          "config": {
-            "organization": "kushtrim-ab",
-            "project": "alb-story",
-            "authToken": "b2ef632becc14ea3aa88c63c77706b5298d5c415e2794a9596fda08c24b06661"
-          }
-        }
-      ]
+    "plugins": [],
+    "extra": {
+      "eas": {
+        "projectId": "dc3b1bc4-52f4-4e68-af9c-13913e58952e"
+      }
     }
   }
 }

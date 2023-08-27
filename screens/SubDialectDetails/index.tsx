@@ -14,7 +14,11 @@ import HeadlineBold from "../../components/Text/HeadlineBold";
 import When from "../../components/When/When";
 import { ColorPalette } from "../../constants/Colors";
 import Layout from "../../constants/Layout";
-import { getDialectById, getNrOfRecordingsFromSubDialect, getSubDialectRecorings } from "../../domain/application/application";
+import {
+  getDialectById,
+  getNrOfRecordingsFromSubDialect,
+  getSubDialectRecorings,
+} from "../../domain/application/application";
 import { Subdialect } from "../../domain/entities/SubDialect/SubDialect";
 import { VoiceArtifact } from "../../domain/entities/VoiceArtifact/VoiceArtifact";
 
@@ -78,7 +82,9 @@ export default function SubDialectDetailsScreen() {
                 title={item.speakerName}
                 colorIndicator={item.dialect?.colorIndicator}
                 subTitle={item.variant?.name || item.subDialect?.name || ""}
-                onPress={() => navigation.navigate("VoiceDetails", { voiceArtifact: item })}
+                onPress={() =>
+                  navigation.navigate("VoiceDetails", { voiceArtifact: item })
+                }
               />
             ))}
           </When>
@@ -93,7 +99,9 @@ export default function SubDialectDetailsScreen() {
                   title={item.speakerName}
                   colorIndicator={item.dialect?.colorIndicator}
                   subTitle={item.variant?.name || item.subDialect?.name || ""}
-                  onPress={() => navigation.navigate("VoiceDetails", { voiceArtifact: item })}
+                  onPress={() =>
+                    navigation.navigate("VoiceDetails", { voiceArtifact: item })
+                  }
                 />
               )}
               scrollEnabled={enableBodyScroll}

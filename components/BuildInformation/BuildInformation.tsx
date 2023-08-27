@@ -6,7 +6,7 @@ import { Text } from "../../components/Themed";
 export default function BuildInformation() {
   return (
     <View style={styles.container}>
-      <Text>Version: {Constants.manifest?.version}</Text>
+      <Text>Version: {Constants.expoConfig?.version}</Text>
       <Text>Legacy of Robert Elsie</Text>
     </View>
   );

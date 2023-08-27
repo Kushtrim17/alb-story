@@ -6,13 +6,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import { LogBox } from "react-native";
-
-// TODO: fix the sentry issue
-// Sentry.init({
-//   dsn: "https://27d4a741b4264cb3a5f051ea9a8ffc68@o125041.ingest.sentry.io/6096966",
-//   debug: true, // MAKE IT FALSE IN PRODUCTION
-//   enableNative: false,
-// });
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 function App() {
   const isLoadingComplete = useCachedResources();
@@ -27,13 +21,13 @@ function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar />
+        </GestureHandlerRootView>
       </SafeAreaProvider>
     );
   }
 }
-
-// export default Sentry.wrap(App);
 
 export default App;
